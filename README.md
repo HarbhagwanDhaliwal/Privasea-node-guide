@@ -1,140 +1,47 @@
-# Privasea Acceleration Node Setup Guide
-
-This guide provides step-by-step instructions to set up and run the Privasea Acceleration Node.
+# Privanetix Node Setup Guide
 
 ## Prerequisites
+Ensure you have Docker installed on your system.
 
-- Docker installed on your system
-- Basic command-line knowledge
-
----
-
-## Step 1: Pull the Docker Image
-
-First, pull the latest version of the Privasea Acceleration Node Docker image by running:
-
+## Step 1: Generate the Keystore File
+Run the following command to generate a new keystore file:
 ```bash
-docker pull privasea/acceleration-node-beta:latest
+docker run -it -v "/privasea/config:/app/config" privasea/acceleration-node-beta:latest /app/node-calc new_keystore
 ```
 
----
-
-## Step 2: Run the Node to Generate Keystore
-
-Start the node to generate the keystore file:
-
+## Step 2: Check for the Keystore File & Rename It
+Navigate to the config folder and list the files to locate your keystore:
 ```bash
-docker run -d \
-  -v "/privasea/config:/app/config" \
-  -e KEYSTORE_PASSWORD=123456 \
-  privasea/acceleration-node-beta:latest
+cd /privasea/config && ls
 ```
 
-Replace `123456` with your desired keystore password.
-
----
-
-## Step 3: Locate and Rename Keystore File
-
-Once the node is running, stop it to modify the keystore file.
-
-1. Stop the running container:
-   
-   ```bash
-   docker stop <container_id>
-   ```
-
-2. Navigate to the configuration directory:
-   
-   ```bash
-   cd /privasea/config && ls
-   ```
-
-3. Identify the keystore file, which typically has a name like:
-   
-   ```
-   UTC--2025-01-06T06-11-07.485797065Z--f07c3ef23ae7beb8cd8ba5ff546e35fd4b332b34
-   ```
-
-4. Rename the keystore file to `wallet_keystore`:
-   
-   ```bash
-   mv ./UTC--2025-01-06T06..xxxxxxxxxxxxxxxxxxx ./wallet_keystore
-   ```
-
----
-
-## Step 4: Rerun the Node
-
-Once the keystore file is correctly set, restart the node with the following command:
-
-```bash
-docker run -d \
-  -v "/privasea/config:/app/config" \
-  -e KEYSTORE_PASSWORD=123456 \
-  privasea/acceleration-node-beta:latest
+You should see a file with a name similar to:
+```
+UTC--2025-01-06T06-11-07.485797065Z--f07c3ef23ae7beb8cd8ba5ff546e35fd4b332b34
 ```
 
----
-
-## Step 5: Monitor the Node
-
-You can check the container logs to monitor the progress:
-
+Rename the found keystore file to `wallet_keystore` using the following command:
 ```bash
-docker logs -f <container_id>
+mv ./UTC--2025-01-06T06..xxxxxxxxxxxxxxxxxxx ./wallet_keystore
 ```
 
-Find the container ID using:
+## Step 3: Run the Node
+Once the keystore is renamed, run the node with the appropriate password:
+```bash
+docker run -d -v "/privasea/config:/app/config" \
+-e KEYSTORE_PASSWORD=123456 \
+privasea/acceleration-node-beta:latest
+```
 
+## Step 4: Verify Node is Running
+Check if the node is running by executing:
 ```bash
 docker ps
 ```
 
-Expected successful messages include:
-- `read mgrNodeInfo info is ok`
-- `get sharedKey success !!!`
-- `upload result to ipfs success !!!`
-- `Processing tasks success!!!`
-- `update task result success!!!`
+If you see the container running, your node is successfully set up.
 
 ---
 
-## Step 6: Managing the Node
-
-### Stop the Node
-
-```bash
-docker stop <container_id>
-```
-
-### Restart the Node
-
-```bash
-docker restart <container_id>
-```
-
-### Remove the Node
-
-If needed, remove the container completely:
-
-```bash
-docker rm -f <container_id>
-```
-
----
-
-## Step 7: Troubleshooting
-
-If you encounter any issues, check the following:
-
-- Ensure the keystore file is correctly named as `wallet_keystore`
-- Verify Docker is running and accessible
-- Review the container logs for any error messages
-
----
-
-## Conclusion
-
-Following this guide will help you successfully set up and run the Privasea Acceleration Node. If you need further assistance, refer to the official documentation or community support channels.
+If you encounter any issues, ensure the volume path and passwords are set correctly.
 
