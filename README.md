@@ -1,6 +1,6 @@
-# 🌊 **Privasea Acceleration Node Setup Guide**  
+# 🌊 **Privasea Acceleration Node Setup Guide - One Click **  
 
-Welcome to the **Privasea Acceleration Node** setup! 🚀 Follow this quick and simple guide to set up, run, and stake TPRAI tokens in your node to start earning rewards. Let’s dive in! 🌟  
+Welcome to the **Privasea Node** setup! 🚀 Follow this quick and simple guide to set up, run, and stake TPRAI tokens in your node to start earning rewards. Let’s dive in! 🌟  
 
 ---
 
