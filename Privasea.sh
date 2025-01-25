@@ -144,7 +144,7 @@ echo ""
 
 # Final step: Display completion message
 echo -e "${GREEN}========================================"
-echo "   Script by airdrop_node"
+echo "   Script by Manpreet Dhaliwal"
 echo -e "========================================${NC}\n"
 echo -e "${CYAN}Configuration files are available at:${NC} $HOME/privasea/config"
 echo -e "${CYAN}Keystore saved as:${NC} wallet_keystore"
