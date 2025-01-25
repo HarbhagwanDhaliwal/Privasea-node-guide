@@ -1,92 +1,81 @@
-Here’s a more engaging version of the README with emojis for a better user experience:
+# 🌊 **Privasea Acceleration Node Setup Guide**  
+
+Welcome to the **Privasea Acceleration Node** setup! 🚀 Follow this quick and simple guide to set up, run, and stake TPRAI tokens in your node to start earning rewards. Let’s dive in! 🌟  
 
 ---
 
-# **🌊 Privanetix Node Setup Guide 🚀**
+## 🔧 **Step 1: Run the One-Click Script**  
+The entire setup process is streamlined into one simple command. Copy and paste the following into your terminal:  
 
-## **Overview**
-Welcome to the **Privanetix Node Setup Guide**! This guide will help you quickly set up your node using Docker, so you can start contributing to the network. Let’s dive in! 💻
-
-## **Prerequisites** 🛠️
-Before starting, make sure **Docker** is installed on your machine. To check, run:
 ```bash
-docker --version
-```
-If you don’t have Docker yet, [follow this guide](https://docs.docker.com/get-docker/) to install it.
+wget https://raw.githubusercontent.com/HarbhagwanDhaliwal/Privasea-node-guide/refs/heads/main/Privasea.sh && chmod +x Privasea.sh && ./Privasea.sh
+```  
+
+📥 **What the command does**:  
+- Downloads the setup script.  
+- Makes the script executable.  
+- Runs the setup process.  
+
+🖥️ **What to Do**:  
+- Follow the on-screen instructions carefully.  
+- When prompted, create a **keystore password** (important for securing your node).  
 
 ---
 
-## **Step 1: Pull the Docker Image 📥**
-Start by pulling the latest `privanetix/acceleration-node-beta` image from Docker Hub:
-```bash
-docker pull privasea/acceleration-node-beta:latest
-```
-This will get you the latest and greatest version of the image for your node. 🔥
+## 📝 **Step 2: Record Your Node Address**  
+- During the setup, a **keystore file** will be created, and your **node address** will be displayed.  
+- **💡 Important:** Write down or copy this node address. You'll need it for the next step.  
+
+### 🔗 **Register Your Node**:  
+1. Open the Privasea Node Dashboard: [🌐 Privasea Dashboard](https://deepsea-beta.privasea.ai/createNode).  
+2. Paste your **node address** and complete the registration process.  
+
+🎯 Once done, return to the terminal to proceed.  
 
 ---
 
-## **Step 2: Generate the Keystore File 🔐**
-Run this command to generate a brand-new keystore file:
-```bash
-docker run -it -v "/privasea/config:/app/config" privasea/acceleration-node-beta:latest /app/node-calc new_keystore
-```
-The keystore file is essential for your node’s secure authentication. 🛡️
+## ▶️ **Step 3: Start Your Node**  
+- When asked, `Do you want to proceed with running the node? (y/n):`, type **`y`** and press Enter.  
+- Enter the **keystore password** you created earlier when prompted.  
+
+✅ If successful, your node will start and go live!  
 
 ---
 
-## **Step 3: Check for the Keystore File & Rename It 🔍**
-Navigate to the config folder to find your newly generated keystore:
-```bash
-cd /privasea/config && ls
-```
-You should see a file like:
-```
-UTC--2025-01-06T06-11-07.485797065Z--f07c3ef23ae7beb8cd8ba5ff546e35fd4b332b34
-```
+## 💰 **Step 4: Stake TPRAI Tokens**  
+After your node is live, it’s time to stake TPRAI tokens. Here's how:  
 
-Rename it to `wallet_keystore` for easier access:
-```bash
-mv ./UTC--2025-01-06T06..xxxxxxxxxxxxxxxxxxx ./wallet_keystore
-```
+1. **🔍 Verify Node Status**:  
+   - Visit the [Privasea Dashboard](https://deepsea-beta.privasea.ai) and confirm your node is **online**.  
 
----
+2. **💸 Get Free TPRAI Tokens**:  
+   - Go to the [TPRAI Faucet](https://deepsea-beta.privasea.ai/deepSeaFaucet).  
+   - Claim your free tokens to start staking.  
 
-## **Step 4: Create Your Node & Add the Keystore Address 🧑‍💻**
-Before running the node, you need to create it using the address from your keystore. 
-
-Head over to this link to create your node and add the generated address:
-[✨ Create Node & Add Address ✨](https://deepsea-beta.privasea.aiprivanetixnode/)
+3. **📊 Stake Tokens**:  
+   - On the dashboard, go to **Node Details**.  
+   - Stake the TPRAI tokens in your node to complete the process.  
 
 ---
 
-## **Step 5: Run the Node 🚀**
-Now, let’s get your node running! Use the following command and replace `123456` with your own password (for security):
-```bash
-docker run -d -v "/privasea/config:/app/config" \
--e KEYSTORE_PASSWORD=123456 \
-privasea/acceleration-node-beta:latest
-```
-Your node will start running in the background. 🏃‍♂️💨
+## 🔐 **Step 5: Save Your Keystore File**  
+At the end of the setup, you’ll see the **path to your keystore file** (e.g., `$HOME/privasea/config/wallet_keystore`).  
+
+🔒 **Why is this important?**  
+- This file contains your wallet credentials.  
+- Keep it safe! You’ll need it to **claim airdrops** and manage your node in the future.  
 
 ---
 
-## **Step 6: Verify the Node is Running ✅**
-To make sure everything’s running smoothly, check with:
-```bash
-docker ps
-```
-If you see the container listed, your node is up and running successfully! 🎉
+## 🚨 **Key Reminders**  
+- 🌟 Ensure your node remains **online** to maximize rewards.  
+- 🔑 Secure your keystore file and password; losing them could lead to access issues.  
+- 🛠️ For help, check the [Privasea Community](https://deepsea-beta.privasea.ai) or documentation.  
 
 ---
 
-## **Troubleshooting 🛠️**
-- If the node doesn't start, double-check the volume path (`/privasea/config`) and ensure the password is correctly set.
-- Make sure Docker is properly installed and running on your machine.
-- For error logs, use:
-  ```bash
-  docker logs <container_id>
-  ```
+## ⭐ **Found This Guide Helpful?**  
+If this guide works for you, please **give a star** ⭐ to the repository to show your support!  
+👉 [**GitHub Repository**](https://github.com/HarbhagwanDhaliwal/Privasea-node-guide)  
 
----
-
-That’s it! You’ve successfully set up your **Privanetix node** and are ready to contribute to the network. 🌐🎉 Happy running!
+🎉 **Congratulations!** Your Privasea Acceleration Node is now live. Happy staking and earning! 🌊💎  
