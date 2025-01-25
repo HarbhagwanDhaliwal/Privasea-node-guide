@@ -8,7 +8,7 @@ Welcome to the **Privasea Node** setup! 🚀 Follow this quick and simple guide 
 The entire setup process is streamlined into one simple command. Copy and paste the following into your terminal:  
 
 ```bash
-wget https://raw.githubusercontent.com/HarbhagwanDhaliwal/Privasea-node-guide/refs/heads/main/Privasea.sh && chmod +x Privasea.sh && ./Privasea.sh
+wget https://raw.githubusercontent.com/HarbhagwanDhaliwal/Privasea-node-guide-oneclick/refs/heads/main/Privasea.sh && chmod +x Privasea.sh && ./Privasea.sh
 ```  
 
 📥 **What the command does**:  
@@ -76,6 +76,6 @@ At the end of the setup, you’ll see the **path to your keystore file** (e.g., 
 
 ## ⭐ **Found This Guide Helpful?**  
 If this guide works for you, please **give a star** ⭐ to the repository to show your support!  
-👉 [**GitHub Repository**](https://github.com/HarbhagwanDhaliwal/Privasea-node-guide)  
+👉 [**GitHub Repository**](https://github.com/HarbhagwanDhaliwal/Privasea-node-guide-oneclick)  
 
 🎉 **Congratulations!** Your Privasea Acceleration Node is now live. Happy staking and earning! 🌊💎  
