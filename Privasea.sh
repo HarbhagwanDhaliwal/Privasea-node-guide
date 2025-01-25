@@ -91,10 +91,19 @@ echo ""
 
 # Step 5: Rename keystore file
 info_message "Renaming keystore file"
-if mv "$HOME/privasea/config/UTC--*" "$HOME/privasea/config/wallet_keystore"; then
-    success_message "Keystore file renamed to wallet_keystore."
+
+# Find the actual file name dynamically
+keystore_file=$(find "$HOME/privasea/config" -type f -name "UTC--*" -print -quit)
+
+if [ -n "$keystore_file" ]; then
+    if mv "$keystore_file" "$HOME/privasea/config/wallet_keystore"; then
+        success_message "Keystore file renamed to wallet_keystore."
+    else
+        error_message "Failed to rename keystore file."
+        exit 1
+    fi
 else
-    error_message "Failed to rename keystore file."
+    error_message "No keystore file found to rename."
     exit 1
 fi
 
